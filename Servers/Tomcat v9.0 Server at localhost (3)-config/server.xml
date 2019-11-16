@@ -105,7 +105,7 @@
     -->
 
     <!-- Define an AJP 1.3 Connector on port 8009 -->
-    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>
+    <Connector connectionTimeout="20000" port="8088" protocol="HTTP/1.1" redirectPort="8443"/>
 
 
     <!-- An Engine represents the entry point (within Catalina) that processes
@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="html1" path="/html1" reloadable="true" source="org.eclipse.jst.jee.server:html1"/><Context docBase="check" path="/check" reloadable="true" source="org.eclipse.jst.jee.server:check"/><Context docBase="Hello" path="/Hello" reloadable="true" source="org.eclipse.jst.jee.server:Hello"/></Host>
+      <Context docBase="Hello" path="/Hello" reloadable="true" source="org.eclipse.jst.jee.server:Hello"/></Host>
     </Engine>
   </Service>
 </Server>
