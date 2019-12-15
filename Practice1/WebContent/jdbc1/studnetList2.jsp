@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List, lecture1.jdbc1.*"%>
 <%
-
 	String srchText = request.getParameter("srchText");  // 들어온거에 맞춰서 치되
 	if (srchText == null)   // 아무것도안들어오면 전체다찾으라
 		srchText = "";
@@ -14,7 +13,6 @@
 		srchid ="1";
 		int id = Integer.parseInt(srchid);
 		Student student1 = StudentDAO2.findById(id);
-
 %>
 <!DOCTYPE html>
 <html>
@@ -49,6 +47,7 @@ table.table {
 			<button type="submit" class="btn btn-primary">조회</button>
 		</form>
 		<a href ="student2.jsp?id=1">id로 조회하기</a>
+		<a href="../form/select1a.jsp">select태그연습용</a>
 		<table class="table table-bordered table-condensed">
 			<thead>
 				<tr>
