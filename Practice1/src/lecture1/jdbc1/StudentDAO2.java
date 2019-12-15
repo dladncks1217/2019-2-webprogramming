@@ -33,9 +33,36 @@ public class StudentDAO2 {
 		}
 	}
 
-	public static List<Student> findByName(String name) throws Exception {
-		String sql = "SELECT s.*, d.departmentName " + "FROM student s LEFT JOIN department d ON s.departmentId = d.id "
-				+ "WHERE s.name LIKE ?";
+
+	public static List<Student> findByName(String name,String sort) throws Exception {
+		String sql = null;
+		switch(sort){
+		case "number":{
+			sql = "SELECT s.*, d.departmentName " + "FROM student s LEFT JOIN department d ON s.departmentId = d.id "
+					+ "WHERE s.name LIKE ? "+"ORDER BY studentNumber";
+			break;
+			}
+		case "name":{
+			sql = "SELECT s.*, d.departmentName " + "FROM student s LEFT JOIN department d ON s.departmentId = d.id "
+					+ "WHERE s.name LIKE ? "+"ORDER BY name";
+			break;
+			}
+		case "department":{
+			sql = "SELECT s.*, d.departmentName " + "FROM student s LEFT JOIN department d ON s.departmentId = d.id "
+					+ "WHERE s.name LIKE ? "+"ORDER BY departmentId";;
+			break;
+			}
+		case "grade":{
+			sql = "SELECT s.*, d.departmentName " + "FROM student s LEFT JOIN department d ON s.departmentId = d.id "
+					+ "WHERE s.name LIKE ? "+"ORDER BY year";
+			break;
+			}
+		default:{
+			sql = "SELECT s.*, d.departmentName " + "FROM student s LEFT JOIN department d ON s.departmentId = d.id "
+					+ "WHERE s.name LIKE ?";
+			}
+		}
+		System.out.println(sql+"sql변수임");
 		try (Connection connection = DB.getConnection("student1");
 				PreparedStatement statement = connection.prepareStatement(sql)) {
 			statement.setString(1, name + "%");

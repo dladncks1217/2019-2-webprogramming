@@ -2,10 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List, lecture1.jdbc1.*"%>
 <%
+	String sortText = request.getParameter("sort");
 	String srchText = request.getParameter("srchText");  // 들어온거에 맞춰서 치되
-	if (srchText == null)   // 아무것도안들어오면 전체다찾으라
+	if (srchText == null){   // 아무것도안들어오면 전체다찾으라
 		srchText = "";
-		List<Student> list = StudentDAO2.findByName(srchText);
+		sortText = "";
+	}
+		List<Student> list = StudentDAO2.findByName(srchText,sortText);
+
+
 	
 	
 	String srchid = request.getParameter("srchid");
@@ -44,10 +49,19 @@ table.table {
 				<label>이름</label> <input type="text" class="form-control"
 					name="srchText" value="<%=srchText%>" placeholder="검색조건" />
 			</div>
+			<div class="form-group">
+			<select name="sort" class="form-control">
+					<option value="number">학번<option>
+					<option value="name">이름<option>
+					<option value="department">학과<option>
+					<option value="grade">학년<option>
+				</select>
+			</div>
 			<button type="submit" class="btn btn-primary">조회</button>
 		</form>
 		<a href ="student2.jsp?id=1">id로 조회하기</a>
 		<a href="../form/select1a.jsp">select태그연습용</a>
+		<br>
 		<table class="table table-bordered table-condensed">
 			<thead>
 				<tr>
