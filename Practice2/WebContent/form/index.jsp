@@ -13,7 +13,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
+<script"WebContent/form/insert.jsp"
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 thead th {
@@ -28,7 +28,7 @@ table.table {
 </head>
 <body>
 	<div class="container">
-		<h1>교수목록</h1>
+		<h1>교수목록</h1>"WebContent/form/insert.jsp"
 		<form class="form-inline">
 			<div class="form-group">
 				<label>이름</label> 

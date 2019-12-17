@@ -26,7 +26,7 @@ public class professorDAO {
 		}
 	}
 
-	public static void insert(Professor professor) throws Exception{
+	public static void insert(Professor professor) throws Exception {
 		String sql = "INSERT professor (professorName, departmentId) VALUES (?, ?)";
 		try (Connection connection = DB.getConnection("student1");
 				PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -34,5 +34,24 @@ public class professorDAO {
 			statement.setString(2, professor.getdepartmentName());
 			statement.executeUpdate();
 		}
+	}
+
+	public static List<Professor> getlastid() throws Exception {
+		String sql = "SELECT * FROM professor ORDER BY id DESC limit 1";
+		try (Connection connection = DB.getConnection("student1");
+				PreparedStatement statement = connection.prepareStatement(sql)) {
+			PreparedStatement statements = connection.prepareStatement(sql);
+			ResultSet resultSet = statements.executeQuery();
+			ArrayList<Professor> lists = new ArrayList<Professor>();
+			while (resultSet.next()) {
+				Professor professors = new Professor();
+				professors.setId(resultSet.getInt("id"));
+				professors.setprofessorName(resultSet.getString("professorName"));
+				professors.setdepartmentName(resultSet.getString("departmentName"));
+				lists.add(professors);
+			}
+			return lists;
+		}
+
 	}
 }
