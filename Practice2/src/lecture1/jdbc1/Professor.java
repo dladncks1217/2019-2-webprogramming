@@ -3,7 +3,7 @@ package lecture1.jdbc1;
 public class Professor{
 	int id;
 	String professorName;
-	int departmentId;
+	String departmentName;
 
 	public int getId() {
 		return id;
@@ -17,10 +17,10 @@ public class Professor{
 	public void setprofessorName(String professorName) {
 		this.professorName = professorName;
 	}
-	public int getdepartmentId() {
-		return departmentId;
+	public String getdepartmentName() {
+		return departmentName;
 	}
-	public void setdepartmentId(int departmentId) {
-		this.departmentId = departmentId;
+	public void setdepartmentName(String departmentName) {
+		this.departmentName = departmentName;
 	}
 }
