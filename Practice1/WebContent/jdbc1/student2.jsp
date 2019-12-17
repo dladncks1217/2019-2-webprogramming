@@ -1,26 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List, lecture1.jdbc1.*"%>
 <%
 	String srchid = request.getParameter("srchid");
-	if(srchid==null)
-		srchid="1";
+	if (srchid == null)
+		srchid = "1";
 	int id = Integer.parseInt(srchid);
 	Student student = StudentDAO2.findById(id);
-
-	
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 body {
 	font-family: 굴림체;
@@ -37,11 +31,11 @@ table td:nth-child(1) {
 </head>
 <body>
 	<form class="form-inline">
-			<div class="form-group">
-				<label>id검색</label><input type="text" class="form-control" name="srchid" placeholder="id를 입력하세요"/>
-			</div>
-			<button type="submit" class="btn btn-primary">조회</button>
-		</form>
+		<div class="form-group">
+			<label>id검색</label><input type="text" class="form-control" name="srchid" placeholder="id를 입력하세요" />
+		</div>
+		<button type="submit" class="btn btn-primary">조회</button>
+	</form>
 	<div class="container">
 		<h1>학생</h1>
 		<table class="table table-bordered table-condensed">
